@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/host_main"
+            app:startDestination="@id/splashFragment">
+
+    <fragment android:id="@+id/splashFragment"
+              android:name="com.fbatista.navigationcontroller_jetpack_sample.main.SplashFragment"
+              android:label="fragment_splash" tools:layout="@layout/fragment_splash">
+        <action android:id="@+id/action_from_splash_to_login" app:destination="@id/loginFragment"/>
+    </fragment>
+    <fragment android:id="@+id/loginFragment"
+              android:name="com.fbatista.navigationcontroller_jetpack_sample.main.LoginFragment"
+              android:label="fragment_login" tools:layout="@layout/fragment_login">
+        <action android:id="@+id/action_from_login_to_home" app:destination="@id/homeFragment"/>
+        <action android:id="@+id/action_from_login_to_signup" app:destination="@id/host_signup"/>
+        <action android:id="@+id/action_loginFragment_to_tutorialFragment" app:destination="@id/tutorialFragment"/>
+    </fragment>
+    <fragment android:id="@+id/homeFragment"
+              android:name="com.fbatista.navigationcontroller_jetpack_sample.main.HomeFragment" android:label="fragment_home"
+              tools:layout="@layout/fragment_home">
+        <argument android:name="name" app:argType="string"/>
+    </fragment>
+    <include app:graph="@navigation/host_signup"/>
+    <fragment android:id="@+id/tutorialFragment"
+              android:name="com.fbatista.navigationcontroller_jetpack_sample.TutorialFragment"
+              android:label="fragment_tutorial" tools:layout="@layout/fragment_tutorial"/>
+    <fragment android:id="@+id/placeholder"/>
+
+
+</navigation>
